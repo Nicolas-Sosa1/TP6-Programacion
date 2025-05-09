@@ -40,5 +40,18 @@ namespace TP6_Grupo18_Programacion.Clases
                 return null;
             }
         }
+
+        // Metodo para consultas UPDATE y DELETE
+        public void EjecutarTransaccion(string consultaSQL)
+        {
+            // Con using la conexion se cierra sola
+            using (ObtenerConexion())
+            {
+                SqlCommand command = new SqlCommand(consultaSQL, ObtenerConexion());
+
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }
