@@ -26,5 +26,11 @@ namespace TP6_Grupo18_Programacion.Clases
         {
             this.id = id;
         }
+
+        // GETTERS
+        public int getId() { return id; }
+        public string getNombre() { return nombre; }
+        public string getCantidad() { return cantidad; }
+        public decimal getPrecio() { return precio; }
     }
 }
