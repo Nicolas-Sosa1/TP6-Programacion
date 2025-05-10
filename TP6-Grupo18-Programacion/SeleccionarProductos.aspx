@@ -10,6 +10,39 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+            <Columns>
+                <asp:TemplateField HeaderText="Id Producto">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("idProducto") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Nombre Producto">                    
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_nombre" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Id Proveedor">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_proveedor" runat="server" Text='<%# Bind("idProveedor") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Precio Unitario">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_precio" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                </Columns>
+                <FooterStyle BackColor="White" ForeColor="#333333" />
+                <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#487575" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#275353" />
+                </asp:GridView>
         </div>
     </form>
 </body>
