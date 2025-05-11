@@ -15,7 +15,7 @@ namespace TP6_Grupo18_Programacion
         Conexion conexion = new Conexion();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack==false)
             {
                 CargarGridView();
             }
