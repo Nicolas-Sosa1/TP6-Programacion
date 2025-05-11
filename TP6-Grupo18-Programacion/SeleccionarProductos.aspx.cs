@@ -15,7 +15,7 @@ namespace TP6_Grupo18_Programacion
         Conexion conexion = new Conexion();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack==false)
+            if (IsPostBack == false)
             {
                 CargarGridView();
             }
@@ -32,5 +32,20 @@ namespace TP6_Grupo18_Programacion
             gvProductos.DataBind();
         }
 
+        protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            string idProducto = ((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_idProducto")).Text;
+            string nombreProducto = ((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_nombre")).Text;
+            string proveedor = ((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_proveedor")).Text;
+            string precio = ((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_precio")).Text;
+
+            // Crear la Session si esta no existe (primera vez o cuando es borrada por el linkbutton)
+            if (Session["Tabla"] == null)
+            {
+                
+            }
+        }
+
+     
     }
 }
