@@ -28,8 +28,17 @@ namespace TP6_Grupo18_Programacion
             DataTable tabla = new DataTable();
             adapter.Fill(tabla);
 
-            gvProducto.DataSource = tabla;
-            gvProducto.DataBind();
+            gvProductos.DataSource = tabla;
+            gvProductos.DataBind();
         }
+
+        protected void gvProductos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvProductos.EditIndex = e.NewEditIndex;
+            CargarGridView();
+        }
+
+        // UPDATE
+        
     }
 }
