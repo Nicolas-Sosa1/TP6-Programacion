@@ -42,7 +42,25 @@ namespace TP6_Grupo18_Programacion
             // Crear la Session si esta no existe (primera vez o cuando es borrada por el linkbutton)
             if (Session["Tabla"] == null)
             {
-                
+                Session["Tabla"] = CrearTabla();
+            }
+            // Guardar la Session DataTable en un objeto DataTable para verificar si en sus filas tiene algun ID Producto igual al seleccionado
+            DataTable tabla = (DataTable)Session["Tabla"];
+            bool yaExiste = tabla.AsEnumerable().Any(row => row["IdProducto"].ToString() == idProducto);
+
+            // Si el ID ya existe
+            if (yaExiste)
+            {
+                lblMensaje.Text = "Producto ya agregado, seleccione otro";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+            }
+            // Si no existe agrega el producto
+            else
+            {
+                AgregarFila((DataTable)Session["Tabla"], idProducto, nombreProducto, proveedor, precio);
+                Session["Tabla"] = tabla;
+                lblMensaje.Text = "Productos agregados: " + nombreProducto;
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
             }
         }
 
