@@ -46,6 +46,21 @@ namespace TP6_Grupo18_Programacion
             }
         }
 
-     
+        private DataTable CrearTabla()
+        {
+            DataTable tabla = new DataTable();
+            DataColumn column = new DataColumn("IdProducto", System.Type.GetType("System.String"));
+
+            tabla.Columns.Add(column);
+            column = new DataColumn("NombreProducto", System.Type.GetType("System.String"));
+            tabla.Columns.Add(column);
+            column = new DataColumn("IdProveedor", System.Type.GetType("System.String"));
+            tabla.Columns.Add(column);
+            column = new DataColumn("PrecioUnidad", System.Type.GetType("System.String"));
+            tabla.Columns.Add(column);
+
+            return tabla;
+        }
+
     }
 }
