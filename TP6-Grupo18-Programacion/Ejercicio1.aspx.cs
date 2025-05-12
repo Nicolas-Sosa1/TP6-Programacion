@@ -38,7 +38,37 @@ namespace TP6_Grupo18_Programacion
             CargarGridView();
         }
 
+       
+        protected void gvProductos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvProductos.EditIndex = -1;
+            CargarGridView();
+        }
+
+        protected void gvProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_eit_IdProducto")).Text;
+            string nombreProducto = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_NombreProducto")).Text;
+            string cantidad = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_CantidadPorUnidad")).Text;
+            string precio = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text;
+
+            Producto producto = new Producto(Convert.ToInt32(idProducto), nombreProducto, cantidad, Convert.ToDecimal(precio));
+
+            GestionProductos gestion = new GestionProductos();
+
+            string consulta = gestion.ActualizarProducto(producto);
+            conexion.EjecutarTransaccion(consulta);
+            gvProductos.EditIndex = -1;
+            CargarGridView();
+        }
+
+        protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvProductos.PageIndex = e.NewPageIndex;
+            CargarGridView();
+        }
+
         // UPDATE
-        
+
     }
 }

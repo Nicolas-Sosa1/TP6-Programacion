@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,10 @@ namespace TP6_Grupo18_Programacion.Clases
 {
     public class Conexion
     {
-        string cadenaConexion = "Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True";
+        string cadenaConexion = "Data Source=localhost\\sqlexpress;Initial Catalog = Neptuno; Integrated Security = True";
+
+       
+
 
         // Metodo establecer conexion
         public SqlConnection ObtenerConexion()

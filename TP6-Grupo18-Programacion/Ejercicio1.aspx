@@ -12,7 +12,7 @@
         <div>
             <h1>Productos</h1>
             <br />
-            <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" CellPadding="4" AutoGenerateEditButton="True" ForeColor="#333333" GridLines="None" OnRowEditing="gvProductos_RowEditing">
+            <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" CellPadding="4" AutoGenerateEditButton="True" ForeColor="#333333" GridLines="None" OnRowEditing="gvProductos_RowEditing" OnRowUpdating="gvProductos_RowUpdating" AllowPaging="True" OnPageIndexChanging="gvProductos_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="Id Producto">
