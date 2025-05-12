@@ -68,7 +68,19 @@ namespace TP6_Grupo18_Programacion
             CargarGridView();
         }
 
-        // UPDATE
+        protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text;
+
+            Producto producto = new Producto(Convert.ToInt32(idProducto));
+
+            GestionProductos gestion = new GestionProductos();
+
+            string consulta = gestion.EliminarProducto(producto);
+            conexion.EjecutarTransaccion(consulta);
+
+            CargarGridView();
+        }
 
     }
 }
