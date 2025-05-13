@@ -10,7 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" AutoGenerateSelectButton="True" OnSelectedIndexChanging="gvProductos_SelectedIndexChanging">
+            <br />
+            <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+            <br /><br />
+            <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" AutoGenerateSelectButton="True" OnSelectedIndexChanging="gvProductos_SelectedIndexChanging">
             <Columns>
                 <asp:TemplateField HeaderText="Id Producto">
                     <ItemTemplate>

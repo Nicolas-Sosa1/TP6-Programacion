@@ -45,6 +45,7 @@ namespace TP6_Grupo18_Programacion
             CargarGridView();
         }
 
+        // UPDATE
         protected void gvProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_eit_IdProducto")).Text;
@@ -68,6 +69,7 @@ namespace TP6_Grupo18_Programacion
             CargarGridView();
         }
 
+        // DELETE
         protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text;

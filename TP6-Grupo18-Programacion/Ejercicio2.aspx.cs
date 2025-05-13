@@ -13,5 +13,11 @@ namespace TP6_Grupo18_Programacion
         {
 
         }
+
+        protected void lbEliminarProductosSeleccionados_Click(object sender, EventArgs e)
+        {
+            lblEliminar.Text = "Se eliminaron todos los productos seleccionados por el usuario";
+            lblEliminar.ForeColor = System.Drawing.Color.Red;
+        }
     }
 }

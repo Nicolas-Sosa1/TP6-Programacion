@@ -80,5 +80,19 @@ namespace TP6_Grupo18_Programacion
             return tabla;
         }
 
+        private DataTable AgregarFila(DataTable tabla, string idProducto, string nombre, string proveedor, string precio)
+        {
+            DataRow row = tabla.NewRow();
+
+            row["IdProducto"] = idProducto;
+            row["NombreProducto"] = nombre;
+            row["IdProveedor"] = proveedor;
+            row["PrecioUnidad"] = precio;
+
+            tabla.Rows.Add(row);
+
+            return tabla;
+        }
+
     }
 }
