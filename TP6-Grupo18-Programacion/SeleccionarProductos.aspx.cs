@@ -94,5 +94,10 @@ namespace TP6_Grupo18_Programacion
             return tabla;
         }
 
+        protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvProductos.PageIndex = e.NewPageIndex;
+            CargarGridView();
+        }
     }
 }

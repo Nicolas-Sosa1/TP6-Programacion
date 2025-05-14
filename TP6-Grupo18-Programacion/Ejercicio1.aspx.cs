@@ -15,6 +15,7 @@ namespace TP6_Grupo18_Programacion
         private Conexion conexion = new Conexion();
         protected void Page_Load(object sender, EventArgs e)
         {
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
                 CargarGridView();
@@ -52,6 +53,28 @@ namespace TP6_Grupo18_Programacion
             string nombreProducto = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_NombreProducto")).Text;
             string cantidad = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_CantidadPorUnidad")).Text;
             string precio = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_eit_Precio")).Text;
+
+            if (string.IsNullOrWhiteSpace(nombreProducto))
+            {
+                lblError.Text = "Debe ingresar un nombre";
+                gvProductos.EditIndex = -1;
+                CargarGridView();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(cantidad))
+            {
+                lblError.Text = "Debe ingresar una cantidad";
+                gvProductos.EditIndex = -1;
+                CargarGridView();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(precio))
+            {
+                lblError.Text = "Debe ingresar un precio";
+                gvProductos.EditIndex = -1;
+                CargarGridView();
+                return;
+            }
 
             Producto producto = new Producto(Convert.ToInt32(idProducto), nombreProducto, cantidad, Convert.ToDecimal(precio));
 
